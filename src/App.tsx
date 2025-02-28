@@ -45,12 +45,15 @@ const App: React.FC = () => {
   };
 
   return (
-    <div>
+    <div style={{ 
+      position: 'relative',
+    }}>
       <Menu 
         onClick={onClick} 
         selectedKeys={[current]} 
         mode="horizontal" 
         items={items} 
+        theme="dark"
       />
       <Routes>
         <Route path="/" element={<Home />} />
