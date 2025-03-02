@@ -15,7 +15,7 @@ const Form: React.FC = () => {
     setError(null);
 
     try {
-      const response = await axios.post('http://59.66.39.245:5000/add_user', {
+      const response = await axios.post('http://43.143.142.232:5000/add_user', {
         name,
         email
       }, {
