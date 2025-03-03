@@ -127,7 +127,7 @@ export function ContactForm({ isOpen, onClose, source }: ContactFormProps) {
       setError(null);
       message.loading('发送中...');
       try {
-        const response = await axios.post(' http://192.168.0.205:5000/add_user', {
+        const response = await axios.post('  https://d59e-43-143-142-232.ngrok-free.app/add_user', {
             name: formData.name,
             organization: formData.organization,
             contact: formData.contact,
@@ -156,7 +156,7 @@ export function ContactForm({ isOpen, onClose, source }: ContactFormProps) {
         setLoading(true);
         setError(null);
         try {
-          const response = await axios.post(' http://192.168.0.205:5000/add_joiner', {
+          const response = await axios.post('  https://d59e-43-143-142-232.ngrok-free.app/add_joiner', {
               name: formData.name,
               organization: formData.organization,
               contact: formData.contact,
@@ -184,7 +184,7 @@ export function ContactForm({ isOpen, onClose, source }: ContactFormProps) {
         setLoading(true);
         setError(null);
         try {
-          const response = await axios.post(' http://192.168.0.205:5000/add_user', {
+          const response = await axios.post('  https://d59e-43-143-142-232.ngrok-free.app/add_user', {
               name: formData.name,
               organization: formData.organization,
               contact: formData.contact,
