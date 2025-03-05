@@ -16,6 +16,7 @@ import IndustryCard from './components/IndustryCard';
 import HeaderTitle from './components/HeaderTitle';
 import Grid from './components/Grid';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+import './App.css';
 
 
 const GlobalStyle = createGlobalStyle`
@@ -271,8 +272,8 @@ function App() {
               </LogoText>
             </LogoContainer>
             <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
-              <a href="#features" style={{ color: '#64748b', transition: 'color 0.3s' }}>产品特性</a>
-              <a href="#industries" style={{ color: '#64748b', transition: 'color 0.3s' }}>行业方案</a>
+              <a href="#features" className='hide-on-mobile' style={{ color: '#64748b', transition: 'color 0.3s' }}>产品特性</a>
+              <a href="#industries" className='hide-on-mobile' style={{ color: '#64748b', transition: 'color 0.3s' }}>行业方案</a>
               <button
                 onClick={toggleDarkMode}
                 style={{ 
