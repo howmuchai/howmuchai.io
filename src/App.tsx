@@ -323,10 +323,24 @@ function App() {
               justifyContent: 'center',
               width: '80%', 
               }}>
-              <Button onClick={() => openForm('demo')} style={{ background: isDark?'#64748b':'gray' }}>
+              <Button 
+                onClick={() => openForm('demo')} 
+                style={{ 
+                  // background: isDark?'#64748b':'gray'
+                  background: isDark?'white':'black',
+                  color: isDark?'black':'white'
+                }}
+              >
                 预约演示
               </Button>
-              <Button onClick={() => openForm('join')} style={{ background: isDark?'#64748b':'gray' }}>
+              <Button 
+                onClick={() => openForm('join')} 
+                style={{ 
+                  // background: isDark?'#64748b':'gray' 
+                  background: isDark?'white':'black',
+                  color: isDark?'black':'white'
+                  }}
+                >
                 加入我们
               </Button>
             </div>
@@ -412,7 +426,14 @@ function App() {
             <CTADescription>
               立即开始免费试用，体验 Howmuch.ai 如何改变您的商业决策。
             </CTADescription>
-            <Button onClick={() => openForm('start')} style={{ background: isDark?'#1e293b':'#64748b' }}>
+            <Button 
+              onClick={() => openForm('start')} 
+              style={{ 
+                // background: isDark?'#1e293b':'#64748b' 
+                background: isDark?'white':'black',
+                color: isDark?'black':'white'
+              }}
+            >
               立即开始
             </Button>
           </CTAContainer>
