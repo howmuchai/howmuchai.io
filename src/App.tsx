@@ -13,7 +13,10 @@ import {
 import ContactForm from './components/ContactForm';
 import FeatureCard from './components/FeatureCard';
 import IndustryCard from './components/IndustryCard';
+import HeaderTitle from './components/HeaderTitle';
+import Grid from './components/Grid';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -96,17 +99,6 @@ const HeaderContent = styled.div`
   justify-content: center;
 `;
 
-const HeaderTitle = styled.h1`
-  font-size: 2.25rem;
-  font-weight: bold;
-  margin-bottom: 16px;
-  background: linear-gradient(to right, #06b6d4, #3b82f6, #8b5cf6);
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: gradient-fast 3s infinite;
-  letter-spacing: -0.025em;
-`;
-
 const HeaderDescription = styled.p`
   font-size: 1.125rem;
   color: ${({ theme }) => theme.text};
@@ -119,7 +111,8 @@ const HeaderDescription = styled.p`
 const Button = styled.button`
   width: 100%;
   padding: 12px 24px;
-  background: linear-gradient(to right, #06b6d4, #3b82f6);
+  // background: linear-gradient(to right, #06b6d4, #3b82f6);
+  background: #64748b;
   color: #ffffff;
   border-radius: 8px;
   border: none;
@@ -143,12 +136,6 @@ const Section = styled.section`
   transition: background-color 0.3s;
 `;
 
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
-`;
-
 const IndustrySection = styled.section`
   max-width: 1280px;
   margin: 0 auto;
@@ -157,10 +144,21 @@ const IndustrySection = styled.section`
 
 const IndustryGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 24px;
   max-width: 768px;
   margin: 0 auto;
+  /* 默认 1*4 布局 */
+  grid-template-columns: repeat(1, 1fr);
+
+  /* 屏幕宽度大于 600px 时使用 2x2 布局 */
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  // /* 屏幕宽度大于 900px 时使用 4x1 布局 */
+  // @media (min-width: 900px) {
+  //   grid-template-columns: repeat(4, 1fr);
+  // }
 `;
 
 const CTASection = styled.section`
@@ -170,7 +168,8 @@ const CTASection = styled.section`
 `;
 
 const CTAContainer = styled.div`
-  background: linear-gradient(to right, #06b6d4, #3b82f6);
+  // background: linear-gradient(to right, #06b6d4, #3b82f6);
+  background: #64748b;
   border-radius: 16px;
   padding: 32px;
   text-align: center;
@@ -295,10 +294,11 @@ function App() {
                 onClick={() => openForm('demo')}
                 style={{ 
                   padding: '8px 16px', 
-                  background: 'linear-gradient(to right, #06b6d4, #3b82f6)', 
-                  color: '#ffffff', 
+                  // background: 'linear-gradient(to right, #06b6d4, #3b82f6)', 
+                  background: !isDark ? '#ffffff' : '#1e293b',
+                  color: isDark ? '#64748b' : '#1e293b',
                   borderRadius: '8px', 
-                  border: 'none',
+                  border: isDark? 'none': '1px solid #64748b',
                   fontWeight: 'medium', 
                   transition: 'all 0.3s' }}
               >
@@ -310,7 +310,7 @@ function App() {
 
         <Header>
           <HeaderContent>
-            <HeaderTitle>
+            <HeaderTitle isDark={isDark}>
               量化价值 · 驱动决策
             </HeaderTitle>
             <HeaderDescription>
@@ -322,10 +322,10 @@ function App() {
               justifyContent: 'center',
               width: '80%', 
               }}>
-              <Button onClick={() => openForm('demo')}>
+              <Button onClick={() => openForm('demo')} style={{ background: isDark?'#64748b':'gray' }}>
                 预约演示
               </Button>
-              <Button onClick={() => openForm('join')} style={{ background: 'linear-gradient(to right, #d946ef, #ec4899)' }}>
+              <Button onClick={() => openForm('join')} style={{ background: isDark?'#64748b':'gray' }}>
                 加入我们
               </Button>
             </div>
@@ -404,14 +404,14 @@ function App() {
         </IndustrySection>
 
         <CTASection>
-          <CTAContainer>
+          <CTAContainer style={{background:isDark?'#64748b':'gray'}}>
             <CTATitle>
               准备好释放 AI 驱动分析的力量了吗？
             </CTATitle>
             <CTADescription>
               立即开始免费试用，体验 Howmuch.ai 如何改变您的商业决策。
             </CTADescription>
-            <Button onClick={() => openForm('start')} style={{ background: 'linear-gradient(to right, #f97316, #ec4899)' }}>
+            <Button onClick={() => openForm('start')} style={{ background: isDark?'#1e293b':'#64748b' }}>
               立即开始
             </Button>
           </CTAContainer>
